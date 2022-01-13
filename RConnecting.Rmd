@@ -1,0 +1,25 @@
+```{r}
+#install.packages("mongolite") 
+library(mongolite)
+```
+connection
+```{r}
+connection = mongo(collection = "posts", db = "dbtest", url = "mongodb://localhost")
+```
+data
+```{r}
+data = connection$find()
+class(data)
+data
+```
+search
+```{r}
+data = connection$find('{"name":"José"}')
+data
+```
+close connection
+```{r}
+#close connection
+rm(connection)
+gc()
+```
